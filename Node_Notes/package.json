@@ -1,0 +1,25 @@
+{
+	"name": "notes-app",
+	"version": "1.0.0",
+	"description": "Note taker application using Node.js",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jjayjack/node_overview.git"
+	},
+	"keywords": [
+		"node"
+	],
+	"author": "Jocelyn Jayjack through instruction-led by Andrew Mead",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jjayjack/node_overview/issues"
+	},
+	"homepage": "https://github.com/jjayjack/node_overview#readme",
+	"dependencies": {
+		"validator": "^13.7.0"
+	}
+}
