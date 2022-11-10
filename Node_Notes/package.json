@@ -1,6 +1,6 @@
 {
 	"name": "notes-app",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Note taker application using Node.js",
 	"main": "app.js",
 	"scripts": {
@@ -21,6 +21,7 @@
 	"homepage": "https://github.com/jjayjack/node_overview#readme",
 	"dependencies": {
 		"chalk": "^2.4.1",
-		"validator": "^13.7.0"
+		"validator": "^13.7.0",
+		"yargs": "^12.0.2"
 	}
 }

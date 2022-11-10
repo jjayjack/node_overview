@@ -18,3 +18,8 @@ Third Challenge: Use the calk library in your project
 4. Test your work
 
 Bonus: Use docs to change text style to bold and inversed.
+
+Fourth Challenge: Add two new commands
+1. Setup command to support 'list' command (print placeholder)
+2. Setup command to support 'read' command (print placeholder)
+3. Test your work by running both commands & ensure correct output
