@@ -8,4 +8,4 @@ const log = console.log
 
 log(chalk.green('Success!'))
 
-log(chalk.bold.inverse('challenged'))
+log(chalk.red.bold.inverse('RED'))
