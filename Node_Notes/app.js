@@ -9,3 +9,5 @@ const log = console.log
 log(chalk.green('Success!'))
 
 log(chalk.red.bold.inverse('RED'))
+
+log(process.argv)
