@@ -42,11 +42,15 @@ const loadNotes = () => {
 
 const removeNote = (title) => {
 	const notes = loadNotes()
-	//filter to set up const which does not match title
 	const notesToKeep = notes.filter(function (note) {
 		return note.title !== title
 	})
-	saveNotes(notesToKeep)
+	if (notes.length > notesToKeep.length) {
+		saveNotes(notesToKeep)
+		console.log(chalk.bgGreen('Note removed!'))
+	} else {
+		console.log(chalk.bgRed('Note not found'))
+	}
 }
 
 module.exports = {
