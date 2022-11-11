@@ -16,10 +16,10 @@ const addNote = (title, body) => {
 			body: body
 		})
 		saveNotes(notes)
-		console.log(chalk.green('Note added!'))
+		console.log(chalk.bgGreen('Note added!'))
 	} else {
 		console.log(
-			chalk.red('Title name duplicate! ') +
+			chalk.bgRed('Title name duplicate! ') +
 				chalk.underline('Please type a different title')
 		)
 	}
