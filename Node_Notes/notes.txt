@@ -29,3 +29,9 @@ Fifth Challenge: Add an option to yargs
 2. Configure a description, make it required, and for it to be a string
 3. Log the body value in the handler function
 4. Test it
+
+Sixth Challenge: Work with JSON and the file system
+1. Load and parse the JSON data
+2. Change the name and age property using your info
+3. Stringify the changed object and overwrite the original data
+4. Test your work by viewing data in the JSON file
