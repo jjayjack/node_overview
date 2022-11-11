@@ -35,3 +35,10 @@ Sixth Challenge: Work with JSON and the file system
 2. Change the name and age property using your info
 3. Stringify the changed object and overwrite the original data
 4. Test your work by viewing data in the JSON file
+
+Seventh Challenge: Setup command option and function 
+1. Setup the remove command to take a required "--title" option
+2. Create and export a removeNote function from notes.js
+3. Call removeNote in remove comand handler
+4. Have removeNote log the title of the note to be removed
+5. Test your work using script
