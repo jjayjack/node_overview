@@ -11,7 +11,7 @@ Second Challenge: Define & use a function in a new file
 3. Export getNotes function
 4. From app.js, load in and call the function printing message to console
 
-Third Challenge: Use the calk library in your project
+Third Challenge: Use the chalk library in your project
 1. Install version 2.4.1 of chalk
 2. Load chalk into app.js
 3. Use it to print the string "Success!" to the console in green
