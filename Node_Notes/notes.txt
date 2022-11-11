@@ -42,3 +42,9 @@ Seventh Challenge: Setup command option and function
 3. Call removeNote in remove comand handler
 4. Have removeNote log the title of the note to be removed
 5. Test your work using script
+
+Eighth Challenge: Wire up removeNote
+1. Load existing notes
+2. Use array filter method to remove the matching note (if any)
+3. Save the newly created array
+4. Test your work with a title that exists and a title that does not exist
