@@ -3,15 +3,16 @@ require('dotenv').config()
 const request = require('postman-request')
 const key = process.env.access_key
 
-const url = `http://api.weatherstack.com/current?access_key=${key}&query=37.8267,-122.4233&units=f`
+// const urlWeatherStack = `http://api.weatherstack.com/current?access_key=${key}&query=37.8267,-122.4233&units=f`
+const urlweather = `https://api.openweathermap.org/data/2.5/weather?lat=51.5085&lon=-0.1257&appid=${key}&units=imperial`
 
-request({ url: url, json: true }, (error, response) => {
+request({ url: urlweather }, (error, response) => {
+	const dataJSON = JSON.parse(response.body)
+
 	console.log(
-		response.body.current.weather_descriptions[0] +
-			': It is currently ' +
-			response.body.current.temperature +
-			' degrees out. It feels like ' +
-			response.body.current.feelslike +
-			' degrees out.'
+		'Current temperature is ' +
+			dataJSON.main.temp +
+			' degrees, it currently feels like ' +
+			dataJSON.main.feels_like
 	)
 })
