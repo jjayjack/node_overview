@@ -26,6 +26,8 @@ const saveNotes = (notes) => {
 	fs.writeFileSync('notes.json', dataJSON)
 }
 
+//debugger
+
 const loadNotes = () => {
 	try {
 		const dataBuffer = fs.readFileSync('notes.json')
