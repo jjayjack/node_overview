@@ -12,24 +12,31 @@ const urlweather = `https://api.openweathermap.org/data/2.5/weather?lat=51.5085&
 const urlGEO = `http://api.openweathermap.org/geo/1.0/direct?q=Chicago,IL,US&limit=1&appid=${key}`
 
 request({ url: urlweather, json: true }, (error, response) => {
-	const dataJSON = response.body
-
-	console.log(
-		'Current temperature is ' +
-			dataJSON.main.temp +
-			' degrees, it currently feels like ' +
-			dataJSON.main.feels_like
-	)
-
 	if (error) {
-		console.log(error)
+		console.log('Unable to connect to weather service')
+	} else if (response.body.error) {
+		console.log('Unable to find location')
+	} else {
+		const dataJSON = response.body
+		console.log(
+			'Current temperature is ' +
+				dataJSON.main.temp +
+				' degrees, it currently feels like ' +
+				dataJSON.main.feels_like
+		)
 	}
 })
 
 // const latlonRequest =
 request({ url: urlGEO, json: true }, (error, response) => {
-	const latitude = response.body[0].lat
-	const longitude = response.body[0].lon
-	console.log(latitude)
-	console.log(longitude)
+	if (error) {
+		console.log('Unable to reach service')
+	} else if (!response.body[0]) {
+		console.log('Missing request information')
+	} else {
+		const latitude = response.body[0].lat
+		const longitude = response.body[0].lon
+		console.log(latitude)
+		console.log(longitude)
+	}
 })
