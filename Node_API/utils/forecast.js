@@ -25,7 +25,9 @@ const forecast = (lat, lon, callback) => {
 					': Current temperature is ' +
 					response.body.main.temp +
 					' degrees, it currently feels like ' +
-					response.body.main.feels_like
+					response.body.main.feels_like +
+					' in ' +
+					response.body.name
 			)
 		}
 	})
