@@ -3,10 +3,14 @@ require('dotenv').config()
 const request = require('postman-request')
 const key = process.env.access_key
 
-const geocode = (address, callback) => {
+const geocode = (city, state, country, callback) => {
 	const urlGEO =
 		'http://api.openweathermap.org/geo/1.0/direct?q=' +
-		address +
+		city +
+		',' +
+		state +
+		',' +
+		country +
 		'&limit=1&appid=' +
 		key
 
