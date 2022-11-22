@@ -4,7 +4,7 @@ const request = require('postman-request')
 const key = process.env.access_key
 
 const forecast = (lat, lon, callback) => {
-	const urlweather =
+	const url =
 		'https://api.openweathermap.org/data/2.5/weather?lat=' +
 		lat +
 		'&lon=' +
@@ -13,21 +13,21 @@ const forecast = (lat, lon, callback) => {
 		key +
 		'&units=imperial'
 
-	request({ url: urlweather, json: true }, (error, response) => {
+	request({ url, json: true }, (error, { body }) => {
 		if (error) {
 			callback('Unable to reach weather services', undefined)
-		} else if (!response.body.coord) {
+		} else if (!body.coord) {
 			callback('Unable to find location', undefined)
 		} else {
 			callback(
 				undefined,
-				response.body.weather[0].description.toUpperCase() +
+				body.weather[0].description.toUpperCase() +
 					': Current temperature is ' +
-					response.body.main.temp +
+					body.main.temp +
 					' degrees, it currently feels like ' +
-					response.body.main.feels_like +
+					body.main.feels_like +
 					' in ' +
-					response.body.name
+					body.name
 			)
 		}
 	})

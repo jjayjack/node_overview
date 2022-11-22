@@ -8,18 +8,23 @@ const country = process.argv[4]
 if (!city | !state | !country) {
 	return console.log('Please provide a city, state and country')
 } else {
-	geocode(city, state, country, (error, data) => {
-		if (error) {
-			return console.log(error)
-		}
-
-		forecast(data.latitude, data.longitude, (error, forecastData) => {
+	geocode(
+		city,
+		state,
+		country,
+		(error, { latitude, longitude, city, state } = {}) => {
 			if (error) {
 				return console.log(error)
 			}
 
-			console.log(data.city, data.state)
-			console.log(forecastData)
-		})
-	})
+			forecast(latitude, longitude, (error, forecastData) => {
+				if (error) {
+					return console.log(error)
+				}
+
+				console.log(city, state)
+				console.log(forecastData)
+			})
+		}
+	)
 }
