@@ -1,11 +1,12 @@
 {
-	"name": "&hearts",
+	"name": "web-Server",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"demon": "nodemon ./src/app.js"
+		"demon-app": "nodemon ./src/app.js",
+		"demon-handle": "nodemon src/app.js -e js,hbs"
 	},
 	"keywords": [],
 	"author": "",

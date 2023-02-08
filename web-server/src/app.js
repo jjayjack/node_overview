@@ -1,13 +1,19 @@
 const path = require('path');
 const express = require('express');
 require('dotenv').config();
+const hbs = require('hbs');
 
 const app = express();
 
 const index = path.join(__dirname, '../public');
 
+//Handlebars express path
+const viewsPath = path.join(__dirname, '../templates/views');
+const partialsPath = path.join(__dirname, '../templates/partials');
+
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
 
 app.use(express.static(index));
 
@@ -35,7 +41,9 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
 	res.render('help', {
 		question: 'How do I do this?',
-		answer: 'Start by touching this...'
+		answer: 'Start by touching this...',
+		title: 'Helpful tips',
+		name: 'Jocelyn'
 	});
 });
 
