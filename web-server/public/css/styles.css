@@ -11,5 +11,17 @@
 }
 
 .help {
-	background-color: red;
+	color: red;
+}
+
+.card {
+	width: 500px;
+	height: 500px;
+	border: 10px solid black;
+}
+
+.user_picture {
+	width: 300px;
+	height: auto;
+	border-top: 2px dashed black;
 }
