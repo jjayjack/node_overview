@@ -1,18 +1,19 @@
 <html>
 	<head>
+		<title>Help</title>
+		<link rel="icon" href="/img/weather.png"/>
 		<link rel='stylesheet' href='css/styles.css' />
 		<link rel="stylesheet" href="css/help.css">
 	</head>
+	<div class="main_content">
 		{{>header}}
-	<div>
-		<card class='card'>
-			<h2 class='title'>Common questions:</h2>
+			<h2 >Common questions:</h2>
+			<p>
 			<h3 class='help'>
 				{{question}}
 			</h3>
 			<span>{{answer}}</span>
-		</card>
-
+			</p>
 	</div>
 {{>footer}}
 </html>

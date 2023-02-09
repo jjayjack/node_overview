@@ -1,5 +1,5 @@
-.user_picture {
+.portrait {
 	width: 300px;
 	height: auto;
-	border: 2px dashed black;
+	border: 2px solid #008080;
 }
