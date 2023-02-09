@@ -47,6 +47,21 @@ app.get('/help', (req, res) => {
 	});
 });
 
+app.get('/help/*', (req, res) => {
+	res.render('404', {
+		title: 'Help',
+		found: req.path,
+		name: 'Jocelyn'
+	});
+});
+
+app.get('*', (req, res) => {
+	res.render('404', {
+		found: req.path,
+		name: 'Jocelyn'
+	});
+});
+
 app.listen(3000, () => {
 	console.log('Server is up on port 3000');
 });
