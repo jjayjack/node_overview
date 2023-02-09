@@ -49,16 +49,19 @@ app.get('/help', (req, res) => {
 
 app.get('/help/*', (req, res) => {
 	res.render('404', {
-		title: 'Help',
-		found: req.path,
-		name: 'Jocelyn'
+		title: '404 Help',
+		name: 'Jocelyn',
+		query: req.path,
+		errMess: 'Help article not found'
 	});
 });
 
 app.get('*', (req, res) => {
 	res.render('404', {
-		found: req.path,
-		name: 'Jocelyn'
+		title: '404',
+		name: 'Jocelyn',
+		query: req.path,
+		errMess: 'Page not found'
 	});
 });
 
