@@ -3,6 +3,9 @@ const express = require('express');
 require('dotenv').config();
 const hbs = require('hbs');
 
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
+
 const app = express();
 
 const index = path.join(__dirname, '../public');
@@ -25,28 +28,44 @@ app.get('', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-	if (!req.query.address) {
+	const city = req.query.city;
+	const state = req.query.state;
+	const country = req.query.country;
+
+	if (!city | !state | !country) {
 		return res.send({
-			error: 'Address required as HTTP header'
+			error: 'Address required as HTTP header `/weather?city=chicago&state=IL&country=us'
 		});
 	}
+
+	geocode(
+		city,
+		state,
+		country,
+		(error, { latitude, longitude, city, state } = {}) => {
+			if (error) {
+				return res.send({
+					error: 'Address required as HTTP header `/weather?city=chicago&state=IL&country=us'
+				});
+			}
+
+			forecast(latitude, longitude, (error, forecastData) => {
+				if (error) {
+					return res.send({
+						error: 'Address required as HTTP header `/weather?city=chicago&state=IL&country=us'
+					});
+				}
+
+				console.log(city, state);
+				console.log(forecastData);
+			});
+		}
+	);
+
 	res.send({
 		address: req.query.address,
 		location: 'Chicago',
 		forecast: 'partly cloudy'
-	});
-});
-
-//http://localhost:3000/test?search=games&rating=5
-app.get('/test', (req, res) => {
-	if (!req.query.search) {
-		return res.send({
-			error: 'Search parameter not found'
-		});
-	}
-	console.log(req.query);
-	res.send({
-		products: []
 	});
 });
 
