@@ -25,9 +25,28 @@ app.get('', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
+	if (!req.query.address) {
+		return res.send({
+			error: 'Address required as HTTP header'
+		});
+	}
 	res.send({
+		address: req.query.address,
 		location: 'Chicago',
 		forecast: 'partly cloudy'
+	});
+});
+
+//http://localhost:3000/test?search=games&rating=5
+app.get('/test', (req, res) => {
+	if (!req.query.search) {
+		return res.send({
+			error: 'Search parameter not found'
+		});
+	}
+	console.log(req.query);
+	res.send({
+		products: []
 	});
 });
 
